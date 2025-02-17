@@ -4,7 +4,7 @@ Live Link: [Chatbot Frontend](https://frontend-deploy-git-master-monicahs-projec
 
 ## **Sample Prompts**
 Here are some example prompts you can try with the chatbot:
-
+---
 -**Introduce name: "My name is John.", "I go by Anna."**
 -**Ask for help: "Can you help?", "I need support"**
 -**Feeling sad: "I feel down", "I feel sad", "I am lonely"**
