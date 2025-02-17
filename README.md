@@ -1,189 +1,125 @@
-
-
 # **Chatbot Backend**
 
+Live Link: [Chatbot Frontend](https://frontend-deploy-git-master-monicahs-projects.vercel.app/)
+
+## **Sample Prompts**
+Here are some example prompts you can try with the chatbot:
+
+Introduce name: "My name is John.", "I go by Anna."
+Ask for help: "Can you help?", "I need support"
+Feeling sad: "I feel down", "I feel sad", "I am lonely"
+Feeling stressed: "I am so stressed out", "I feel stuck"
+Feeling worthless: "I feel so worthless.", "No one likes me."
+Feeling depressed: "I can't take it anymore", "I am so depressed"
+Feeling happy: "I feel great today.", "I am happy."
+Casual response: "Oh I see.", "Okay", "Fine", "Yeah"
+Feeling anxious: "I feel so anxious.", "I'm so anxious because of work."
+Not talking: "I don't want to talk about it.", "Just shut up."
+Sleep issues: "I have insomnia", "I can't sleep."
+
+---
+
+## **Description**
 This is the backend for the chatbot application, built using **FastAPI**, a modern and fast web framework for building APIs with Python. The backend handles incoming requests from the frontend, processes the user's message, generates a bot response (which could be based on a predefined set of rules or an AI model), and returns the response to the frontend. This backend is hosted on **Railway** for easy deployment and scaling.
 
 ---
 
-### **Tech Stack**
-
-- **FastAPI**: A high-performance web framework for building APIs with Python 3.7+ based on standard Python type hints. It is fast, easy to use, and designed for building REST APIs.
-- **Uvicorn**: An ASGI server that serves FastAPI applications. It's an asynchronous server that is incredibly fast and allows FastAPI to handle multiple requests concurrently.
-- **Python 3.9+**: A modern version of Python that provides a wide array of libraries and features, perfect for building high-performance web applications.
-- **Pydantic**: A data validation library used by FastAPI to validate incoming request data and ensure that it meets the expected format.
-- **Railway**: A cloud platform for quickly deploying and managing backend applications. It handles the server infrastructure and scaling automatically.
-
----
-
-### **Features**
-
-- **Handles POST requests**: The backend listens for POST requests containing the user's message (in the form of JSON) and processes them.
-- **Processes User Input**: The backend processes the user's input, which can be done either by rule-based logic or by calling an AI model to generate a bot response.
-- **Generates Bot Response**: After processing the input, the backend generates an appropriate response from the bot and sends it back to the frontend.
-- **RESTful API**: The backend provides a clean, easy-to-use API for interacting with the chatbot.
-- **Deployment on Railway**: The backend is deployed on Railway, which simplifies the deployment process and makes scaling the application easy.
+## **Tech Stack**
+- **FastAPI**: A high-performance web framework for building APIs with Python 3.7+.
+- **Uvicorn**: An ASGI server that serves FastAPI applications.
+- **Python 3.9+**: The programming language used to build the backend.
+- **Pydantic**: A data validation library used by FastAPI.
+- **Railway**: A cloud platform for deploying and managing backend applications.
 
 ---
 
-### **Installation**
+## **Training the Chatbot Model**
+The chatbot model was trained using the **Naive Bayes algorithm** with the `intents.json` dataset. This dataset contains predefined intents and responses, meaning the chatbot follows a rule-based approach rather than deep learning-based natural language understanding.
 
-To set up the chatbot backend on your local machine, follow the steps below:
+### **Limitations & Future Work**
+- The model may **hallucinate responses** (generate inaccurate or irrelevant answers) since it is trained on a limited dataset.
+- The chatbot does not currently learn from user interactions.
+- **Future goal:** Fine-tuning the model with a larger dataset and possibly integrating an **ML-powered NLP model** like transformers for better response generation.
+
+---
+
+## **Features**
+- **Handles POST requests**: The backend listens for POST requests containing user input.
+- **Processes User Input**: The backend processes messages using a trained Naive Bayes model.
+- **Generates Bot Response**: Returns a relevant response based on predefined intents.
+- **RESTful API**: Provides an API interface for chatbot interactions.
+- **Deployment on Railway**: Simplifies hosting and scaling.
+
+---
+
+## **Installation**
+To set up the chatbot backend locally, follow these steps:
 
 1. **Clone the repository**:
-
-   First, open your terminal or command prompt and clone the repository to your local machine:
-
    ```bash
    git clone https://github.com/your-username/chatbot-backend.git
    cd chatbot-backend
    ```
 
-2. **Create a virtual environment (optional but recommended)**:
-
-   It is a good practice to use a virtual environment to manage dependencies in Python. To create and activate a virtual environment:
-
-   - On macOS/Linux:
-
-     ```bash
-     python3 -m venv venv
-     source venv/bin/activate
-     ```
-
-   - On Windows:
-
-     ```bash
-     python -m venv venv
-     venv\Scripts\activate
-     ```
-
-   Once the virtual environment is activated, any Python packages you install will be contained within it.
+2. **Create a virtual environment** (optional but recommended):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # macOS/Linux
+   venv\Scripts\activate  # Windows
+   ```
 
 3. **Install dependencies**:
-
-   Next, you need to install the necessary dependencies. The required packages are listed in the `requirements.txt` file, so use the following command:
-
    ```bash
    pip install -r requirements.txt
    ```
 
-   This will install FastAPI, Uvicorn, and any other dependencies required to run the backend.
-
-4. **Set up your environment variables**:
-
-   You can configure environment variables such as database connections or secret keys. Here's how to set them up:
-
-   - In the root directory of the project, create a `.env` file to store your environment variables.
-   
-   - Example `.env` file:
-
-     ```bash
-     DATABASE_URL="your-database-url"
-     ```
-
-     Add any other variables you need for your backend here.
-
-5. **Run the backend server locally**:
-
-   After setting up your environment, you can start the FastAPI backend by running the following command:
-
+4. **Run the backend server**:
    ```bash
    uvicorn main:app --reload
    ```
 
-   The `--reload` flag makes the server automatically restart if you make any changes to the code.
-
-6. **Open the app in your browser**:
-
-   Once the backend server is running, you can access it in your browser at the following URL:
-
+5. **Open API documentation**:
    ```bash
    http://localhost:8000
    ```
 
-   This will open the FastAPI documentation (Swagger UI) where you can interact with the API and test the endpoints.
-
 ---
 
-### **Deployment on Railway**
-
-After you’ve set up and tested the backend locally, it’s time to deploy it to **Railway**.
-
-1. **Push the code to your repository**:
-
-   Before deploying, ensure that all your changes are committed to your GitHub (or other Git repositories) and pushed.
-
+## **Deployment on Railway**
+1. **Push the code to GitHub**:
    ```bash
    git add .
    git commit -m "Initial commit"
    git push origin main
    ```
 
-2. **Create a new Railway project**:
-
-   - Go to the [Railway dashboard](https://railway.app/) and log in (or create an account if you don’t have one).
-   - Create a new project and choose the **GitHub repository** that contains your chatbot backend code.
-   - Railway will automatically detect your FastAPI project and configure the necessary deployment environment.
-
-3. **Set environment variables on Railway (if needed)**:
-
-   If your application requires any environment variables (such as database URLs, secret keys, etc.), you can add them in the Railway dashboard.
-
-   - Navigate to your project settings on Railway.
-   - Go to **Settings > Environment Variables** and add the necessary variables. For example:
-
-     ```bash
-     DATABASE_URL="your-database-url"
-     ```
-
-4. **Deploy the backend**:
-
-   Railway will automatically detect changes in the repository and deploy the app when you push new commits. It will also provide you with a URL where your backend is live.
+2. **Deploy on Railway**:
+   - Go to [Railway](https://railway.app/) and create a new project.
+   - Link your GitHub repository and deploy the backend.
 
 ---
 
-### **API Endpoints**
-
-Here are the main API endpoints that the backend provides:
-
-1. **POST /chat**: This endpoint receives a user's message and returns a bot response.
-
-   - **Request Example**:
-     ```json
-     {
-       "text": "Hi, how are you?"
-     }
-     ```
-
-   - **Response Example**:
-     ```json
-     {
-       "response": "I am just a bot! 😊"
-     }
-     ```
-
-   The `text` field in the request is the message sent by the user. The backend processes this input and returns the bot's response in the `response` field.
+## **API Endpoints**
+### **POST /chat**
+- **Request Example**:
+  ```json
+  {
+    "text": "Hi, how are you?"
+  }
+  ```
+- **Response Example**:
+  ```json
+  {
+    "response": "I am just a bot! 😊"
+  }
+  ```
 
 ---
 
-### **Troubleshooting**
-
-If you encounter issues while running the backend or deploying it, here are some things to check:
-
-1. **Ensure the backend server is running**:
-
-   Make sure that the backend server is up and running locally or on Railway. You can check the status of the server by going to `http://localhost:8000` or reviewing the Railway dashboard logs.
-
-2. **Check the Railway logs**:
-
-   If the backend is not responding as expected, check the logs in the Railway dashboard. The logs can provide detailed information about errors or failed deployments.
-
-3. **Ensure that the frontend is using the correct backend URL**:
-
-   Double-check that the frontend is using the correct backend URL by verifying the environment variable in the frontend project. The variable `NEXT_PUBLIC_BACKEND_URL` should point to the correct Railway URL where your backend is deployed.
-
-4. **Database and External Dependencies**:
-
-   If your backend uses a database or external services, ensure that those services are correctly set up and accessible from the backend. This includes checking if the database URL or API keys are correctly configured.
+## **Troubleshooting**
+- **Backend not responding?** Check if `uvicorn` is running.
+- **Deployment issues?** Review Railway logs.
+- **Incorrect responses?** The model might be hallucinating; fine-tuning is planned for future versions.
 
 ---
+
