@@ -1,9 +1,10 @@
 from fastapi import FastAPI
 import joblib
-import random
+import random  # Make sure random is imported here
 from pydantic import BaseModel
 import json
 import os  # Add this import
+from fastapi.middleware.cors import CORSMiddleware  # Add the CORSMiddleware import
 
 # Load trained model and preprocessing objects
 clf = joblib.load("chatbot_model.pkl")
@@ -17,6 +18,15 @@ with open("intents.json", "r") as file:
 # Initialize FastAPI app
 app = FastAPI()
 
+# Add CORS middleware to allow requests from the frontend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # Allow only this frontend
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
+)
+
 # Request model
 class ChatInput(BaseModel):
     text: str
@@ -27,11 +37,19 @@ def chatbot_response(user_input):
     input_vector = vectorizer.transform([cleaned_input])
     predicted_sentiment = label_encoder.inverse_transform(clf.predict(input_vector))[0]
 
+    matching_responses = []
+
+    # Iterate over the intents to find matching response
     for intent in intents["intents"]:
         if predicted_sentiment in intent["tag"]:
-            return random.choice(intent["responses"])
+            matching_responses.extend(intent["responses"])
 
-    return "I'm here to help. Tell me more about how you're feeling."
+    # If no matching responses are found, provide a default response
+    if not matching_responses:
+        matching_responses.append("I'm here to help. Tell me more about how you're feeling.")
+    
+    # Return a random response from the matched responses
+    return random.choice(matching_responses)
 
 # API Endpoint
 @app.post("/chat")
