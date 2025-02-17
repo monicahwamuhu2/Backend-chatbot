@@ -1,0 +1,5 @@
+# .gitignore
+frontend/        # Ignore the frontend folder
+*.log            # Ignore log files
+node_modules/    # Ignore node_modules if it's inside the backend folder
+.env             # Ignore environment files (optional)
