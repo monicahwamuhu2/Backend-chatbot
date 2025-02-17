@@ -5,17 +5,17 @@ Live Link: [Chatbot Frontend](https://frontend-deploy-git-master-monicahs-projec
 ## **Sample Prompts**
 Here are some example prompts you can try with the chatbot:
 
-Introduce name: "My name is John.", "I go by Anna."
-Ask for help: "Can you help?", "I need support"
-Feeling sad: "I feel down", "I feel sad", "I am lonely"
-Feeling stressed: "I am so stressed out", "I feel stuck"
-Feeling worthless: "I feel so worthless.", "No one likes me."
-Feeling depressed: "I can't take it anymore", "I am so depressed"
-Feeling happy: "I feel great today.", "I am happy."
-Casual response: "Oh I see.", "Okay", "Fine", "Yeah"
-Feeling anxious: "I feel so anxious.", "I'm so anxious because of work."
-Not talking: "I don't want to talk about it.", "Just shut up."
-Sleep issues: "I have insomnia", "I can't sleep."
+**Introduce name: "My name is John.", "I go by Anna."**
+**Ask for help: "Can you help?", "I need support"**
+**Feeling sad: "I feel down", "I feel sad", "I am lonely"**
+**Feeling stressed: "I am so stressed out", "I feel stuck"**
+**Feeling worthless: "I feel so worthless.", "No one likes me."**
+**Feeling depressed: "I can't take it anymore", "I am so depressed"**
+**Feeling happy: "I feel great today.", "I am happy."**
+**Casual response: "Oh I see.", "Okay", "Fine", "Yeah"**
+**Feeling anxious: "I feel so anxious.", "I'm so anxious because of work."**
+**Not talking: "I don't want to talk about it.", "Just shut up."**
+**Sleep issues: "I have insomnia", "I can't sleep."**
 
 ---
 
