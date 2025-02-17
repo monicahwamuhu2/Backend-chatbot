@@ -3,6 +3,7 @@ import joblib
 import random
 from pydantic import BaseModel
 import json
+import os  # Add this import
 
 # Load trained model and preprocessing objects
 clf = joblib.load("chatbot_model.pkl")
@@ -41,4 +42,6 @@ def get_chat_response(user_input: ChatInput):
 # Run the server
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    # Get port from environment variable or default to 8000
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
