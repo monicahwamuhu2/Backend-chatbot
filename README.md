@@ -1,92 +1,129 @@
 # **Chatbot Backend**
 
-Live Link: [Chatbot Frontend](https://frontend-deploy-git-master-monicahs-projects.vercel.app/)
+**Live Link:** [Chatbot Frontend](https://frontend-deploy-git-master-monicahs-projects.vercel.app/)
 
-## **Sample Prompts**
-Here are some example prompts you can try with the chatbot:
----
--**Introduce name: "My name is John.", "I go by Anna."**
--**Ask for help: "Can you help?", "I need support"**
--**Feeling sad: "I feel down", "I feel sad", "I am lonely"**
--**Feeling stressed: "I am so stressed out", "I feel stuck"**
--**Feeling worthless: "I feel so worthless.", "No one likes me."**
--**Feeling depressed: "I can't take it anymore", "I am so depressed"**
--**Feeling happy: "I feel great today.", "I am happy."**
--**Casual response: "Oh I see.", "Okay", "Fine", "Yeah"**
--**Feeling anxious: "I feel so anxious.", "I'm so anxious because of work."**
--**Not talking: "I don't want to talk about it.", "Just shut up."**
--**Sleep issues: "I have insomnia", "I can't sleep."**
+## **Example Prompts**
+Try out some of these example prompts with the chatbot:
+
+- **Introduce Yourself**: 
+  - "My name is John."
+  - "I go by Anna."
+  
+- **Ask for Help**: 
+  - "Can you help?"
+  - "I need support."
+  
+- **Feeling Sad**: 
+  - "I feel down."
+  - "I feel sad."
+  - "I am lonely."
+  
+- **Feeling Stressed**: 
+  - "I am so stressed out."
+  - "I feel stuck."
+  
+- **Feeling Worthless**: 
+  - "I feel so worthless."
+  - "No one likes me."
+  
+- **Feeling Depressed**: 
+  - "I can't take it anymore."
+  - "I am so depressed."
+  
+- **Feeling Happy**: 
+  - "I feel great today."
+  - "I am happy."
+  
+- **Casual Response**: 
+  - "Oh I see."
+  - "Okay."
+  - "Fine."
+  - "Yeah."
+  
+- **Feeling Anxious**: 
+  - "I feel so anxious."
+  - "I'm so anxious because of work."
+  
+- **Not Talking**: 
+  - "I don't want to talk about it."
+  - "Just shut up."
+  
+- **Sleep Issues**: 
+  - "I have insomnia."
+  - "I can't sleep."
 
 ---
 
 ## **Description**
-This is the backend for the chatbot application, built using **FastAPI**, a modern and fast web framework for building APIs with Python. The backend handles incoming requests from the frontend, processes the user's message, generates a bot response (which could be based on a predefined set of rules or an AI model), and returns the response to the frontend. This backend is hosted on **Railway** for easy deployment and scaling.
+This backend powers the chatbot application, built using **FastAPI**—a fast and modern web framework for creating APIs in Python. It processes user inputs, generates bot responses (using a combination of predefined rules and an AI model), and sends the response back to the frontend. The backend is hosted on **Railway**, providing ease of deployment and scalability.
 
 ---
 
 ## **Tech Stack**
 - **FastAPI**: A high-performance web framework for building APIs with Python 3.7+.
 - **Uvicorn**: An ASGI server that serves FastAPI applications.
-- **Python 3.9+**: The programming language used to build the backend.
+- **Python 3.9+**: Programming language used for the backend.
 - **Pydantic**: A data validation library used by FastAPI.
-- **Railway**: A cloud platform for deploying and managing backend applications.
+- **Railway**: Cloud platform for deploying and managing backend applications.
 
 ---
 
 ## **Training the Chatbot Model**
-The chatbot model was trained using the **Naive Bayes algorithm** with the `intents.json` dataset. This dataset contains predefined intents and responses, meaning the chatbot follows a rule-based approach rather than deep learning-based natural language understanding.
+The chatbot's response generation is based on the **Naive Bayes algorithm** and trained using the `intents.json` dataset. This dataset contains predefined intents and responses, meaning the chatbot operates on a rule-based approach, rather than a deep-learning-based natural language understanding model.
 
 ### **Limitations & Future Work**
-- The model may **hallucinate responses** (generate inaccurate or irrelevant answers) since it is trained on a limited dataset.
-- The chatbot does not currently learn from user interactions.
-- **Future goal:** Fine-tuning the model with a larger dataset and possibly integrating an **ML-powered NLP model** like transformers for better response generation.
+- The model may **hallucinate responses**, occasionally providing inaccurate or irrelevant answers, due to the limited dataset it has been trained on.
+- The chatbot currently does not learn from user interactions.
+- **Future Improvements**: 
+  - Expanding the dataset for better coverage of intents.
+  - Integrating an **ML-powered NLP model** (e.g., transformers) for enhanced response generation.
 
 ---
 
 ## **Features**
 - **Handles POST requests**: The backend listens for POST requests containing user input.
-- **Processes User Input**: The backend processes messages using a trained Naive Bayes model.
-- **Generates Bot Response**: Returns a relevant response based on predefined intents.
+- **Processes User Input**: It processes user messages using a trained Naive Bayes model.
+- **Generates Bot Responses**: It provides relevant responses based on predefined intents.
 - **RESTful API**: Provides an API interface for chatbot interactions.
-- **Deployment on Railway**: Simplifies hosting and scaling.
+- **Deployment on Railway**: Simplifies backend hosting and scaling.
 
 ---
 
-## **Installation**
-To set up the chatbot backend locally, follow these steps:
+## **Installation Instructions**
+To run the chatbot backend locally, follow these steps:
 
-1. **Clone the repository**:
+1. **Clone the Repository**:
    ```bash
    git clone https://github.com/your-username/chatbot-backend.git
    cd chatbot-backend
    ```
 
-2. **Create a virtual environment** (optional but recommended):
+2. **Create a Virtual Environment** (optional but recommended):
    ```bash
    python -m venv venv
    source venv/bin/activate  # macOS/Linux
    venv\Scripts\activate  # Windows
    ```
 
-3. **Install dependencies**:
+3. **Install Dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Run the backend server**:
+4. **Start the Backend Server**:
    ```bash
    uvicorn main:app --reload
    ```
 
-5. **Open API documentation**:
-   ```bash
-   http://localhost:8000
-   ```
+5. **Access API Documentation**:
+   Visit `http://localhost:8000` to view the auto-generated API docs.
 
 ---
 
 ## **Deployment on Railway**
-1. **Push the code to GitHub**:
+To deploy the chatbot backend on Railway, follow these steps:
+
+1. **Push the Code to GitHub**:
    ```bash
    git add .
    git commit -m "Initial commit"
@@ -95,7 +132,7 @@ To set up the chatbot backend locally, follow these steps:
 
 2. **Deploy on Railway**:
    - Go to [Railway](https://railway.app/) and create a new project.
-   - Link your GitHub repository and deploy the backend.
+   - Link your GitHub repository to Railway and deploy the backend.
 
 ---
 
@@ -117,9 +154,8 @@ To set up the chatbot backend locally, follow these steps:
 ---
 
 ## **Troubleshooting**
-- **Backend not responding?** Check if `uvicorn` is running.
-- **Deployment issues?** Review Railway logs.
-- **Incorrect responses?** The model might be hallucinating; fine-tuning is planned for future versions.
+- **Backend not responding?** Ensure that `uvicorn` is running correctly.
+- **Deployment issues?** Check Railway logs for any errors.
+- **Incorrect responses?** The chatbot may be hallucinating due to limited training data. Fine-tuning is planned for future updates.
 
 ---
-
