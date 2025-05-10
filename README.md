@@ -62,7 +62,7 @@ This backend powers the chatbot application, built using **FastAPI**—a fast an
 ## **Tech Stack**
 - **FastAPI**: A high-performance web framework for building APIs with Python 3.7+.
 - **Uvicorn**: An ASGI server that serves FastAPI applications.
-- **Python 3.9+**: Programming language used for the backend.
+- **Python 3.9+**: Programming language  for the backend.
 - **Pydantic**: A data validation library used by FastAPI.
 - **Railway**: Cloud platform for deploying and managing backend applications.
 
